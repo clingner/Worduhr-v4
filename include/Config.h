@@ -34,7 +34,7 @@
 // #define DEFAULT_LAYOUT Ger10x11
 // 10 rows, 11 LEDs per row + 4 LEDs for minutes
 //
-#define DEFAULT_LAYOUT Ger10x11Alternative
+// #define DEFAULT_LAYOUT Ger10x11Alternative
 // 10 rows, each 11 LED's per row + 4 LED's for minutes, with modified
 // layout for extra words in the matrix from the Github user @dbambus
 //
@@ -151,7 +151,7 @@
 // 10 rows, 11 LED's per row + 4 LED's for minutes, with modified
 // layout for the Swiss German language
 //
-// #define DEFAULT_LAYOUT  Ch10x11V2
+#define DEFAULT_LAYOUT  Ch10x11V2
 // 10 rows, 11 LED's per row + 4 LED's for minutes, with modified
 // layout for the Swiss German language with "Gsi" option
 
@@ -222,7 +222,7 @@
  * Valid values for DEFAULT_HUE [integer 0-255]
  * Valid values for DEFAULT_BRIGHTNESS [one of these: 0, 20, 40, 60, 80, 100]
  */
-#define DEFAULT_LEDTYPE Grb
+#define DEFAULT_LEDTYPE Grbw
 #define WHITE_LEDTYPE WhiteType::NeutralWhite
 #define DEFAULT_HUE 120
 #define DEFAULT_BRIGHTNESS 100
@@ -303,7 +303,7 @@
  *
  * Valid values [RTC_DS1307, RTC_PCF8523, RTC_DS3231]
  */
-#define RTC_Type RTC_DS3231
+#define RTC_Type RTC_PCF8523
 
 //--------------------------------------------------------------------------
 // Serial Number
@@ -389,8 +389,8 @@
  * Valid values BOOT_SHOWIP [true, false]
  * Valid values BOOT_LEDSWEEP [true, false]
  */
-#define BOOT_SHOWIP false
-#define BOOT_LEDSWEEP false
+#define BOOT_SHOWIP true
+#define BOOT_LEDSWEEP true
 
 //--------------------------------------------------------------------------
 // Displaying Option for Minutes

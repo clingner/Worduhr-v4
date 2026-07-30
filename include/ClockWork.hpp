@@ -72,13 +72,27 @@ void ClockWork::loopAutoBrightLogic() {
         division by zero (analogRead is 0-1023)!
         */
         uint16_t adcValue = analogRead(A0);
+        #if defined(ESP32)
+        // ESP32 / ESP32-C3 liefert standardmäßig 12 Bit (0...4095).
+        // Die bestehende Berechnung erwartet jedoch 10 Bit wie beim ESP8266.
+        adcValue >>= 2;
+        #endif
+
         if (adcValue > 980) {
             adcValue = 980;
         }
+        if (adcValue >= 1023)
+        {
+        adcValue = 1022;
+        }
 
-        luxNow = (adcValue * AUTOBRIGHT_LDR_RESDARK * 10) /
-                 (AUTOBRIGHT_LDR_RESBRIGHT * AUTOBRIGHT_LDR_RESDIVIDER *
-                  (1024 - adcValue));
+        luxNow =
+        ((float)adcValue *
+        (float)AUTOBRIGHT_LDR_RESDARK *
+        10.0f) /
+        ((float)AUTOBRIGHT_LDR_RESBRIGHT *
+        (float)AUTOBRIGHT_LDR_RESDIVIDER *
+        (1024.0f - (float)adcValue));
         autoBrightUsingBH1750 = false;
     }
 
